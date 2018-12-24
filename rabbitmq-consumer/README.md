@@ -1,4 +1,4 @@
-##### 重新认识RabbitMQ - 入门案例
+#### 重新认识RabbitMQ - 入门案例
 
 **rabitmq-consumer**
 
