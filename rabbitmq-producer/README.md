@@ -1,20 +1,20 @@
-package cn.haoxiaoyong.rabbitmq;
+#### 重新认识RabbitMQ - 入门案例
 
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
+**rabbitmq-producer**
 
-import java.io.IOException;
-import java.util.concurrent.TimeoutException;
+**生产者**
 
-/**
- * Created by haoxy on 2018/12/24.
- * E-mail:hxyHelloWorld@163.com
- * github:https://github.com/haoxiaoyong1014
- * rabbitmq的入门程序-生产者
- * <p>
- * 从新认识一下 RabbitMq
- */
+<a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/Producer01.java">Producer01</a>
+
+* 创建连接
+
+* 创建通道
+
+* 声明队列
+
+* 发送消息
+
+```java
 public class Producer01 {
 
     private static final String QUEUE = "helloworld";
@@ -80,3 +80,5 @@ public class Producer01 {
     }
 
 }
+
+```

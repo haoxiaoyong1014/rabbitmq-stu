@@ -1,17 +1,23 @@
-package cn.haoxiaoyong.rabbitmq;
+##### 重新认识RabbitMQ - 入门案例
 
-import com.rabbitmq.client.*;
+**rabitmq-consumer**
 
-import java.io.IOException;
-import java.util.concurrent.TimeoutException;
+**消费者**
 
-/**
- * Created by haoxy on 2018/12/24.
- * E-mail:hxyHelloWorld@163.com
- * github:https://github.com/haoxiaoyong1014
- * <p>
- * rabbitmq的入门程序-消费者
- */
+<a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/Consumer01.java">Consumer01</a>
+
+* 创建连接
+
+* 创建通道
+
+* 声明队列
+
+* 监听队列
+
+* 接收消息
+
+```java
+
 public class Consumer01 {
 
     //队列
@@ -84,3 +90,4 @@ public class Consumer01 {
     }
 
 }
+```
