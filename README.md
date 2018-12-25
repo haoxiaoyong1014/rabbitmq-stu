@@ -4,7 +4,7 @@
 
 **入门程序**
 
-**Work queues 工作模式**
+#### Work queues 工作模式
 
 <img src="http://www.rabbitmq.com/img/tutorials/python-two.png" height="110">
 
@@ -87,4 +87,64 @@ rabbitmq会认为你这个消息没有消费,因为 rabbit没有收到消息确�
     
 通过将MessageProperties（实现BasicProperties）设置为值PERSISTENT_TEXT_PLAIN。这样我们就将消息设置为持久化了.    
 
-  
+#### publish/subscribe工作模式 (又称发布订阅模式)
+
+<img src="http://www.rabbitmq.com/img/tutorials/exchanges.png" height="110">
+
+上一个案例中我们演示了`消费者丢失消息`和 `消息持久化`,这次为了简化代码使用自动ack,
+
+消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/srcs/test/java/cn/haoxiaoyong/rabbitmq/Consumer02_subscribe_email.java">Consumer02_subscribe_email</a>
+
+消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/srcs/test/java/cn/haoxiaoyong/rabbitmq/Consumer02_subscribe_sms.java">Consumer02_subscribe_sms</a>
+
+生产者： <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-producer/srcs/test/java/cn/haoxiaoyong/rabbitmq/Producer02_publish.java">Producer02_publish</a>
+
+* publish/subscribe模式：
+
+       向多个消费者中传递消息，此模式也称发布/订阅
+       
+       每个消费者监听自己的队列。
+       
+       生产者将消息发给broker(mq)，由交换机将消息转发到绑定此交换机的每个队列，每个绑定交换机的队列都将接收到消息
+       
+      
+
+* 应用场景：开发中一边需要发送短信，一边需要发送邮件。
+
+**在此模式中我们将引入一个新的概念-Exchanges(交换机)**
+
+生产者不是将消息直接发送到队列，而是发送到交换机，由交换机将消息转发到绑定此交换机的每个队列
+
+RabbitMQ中消息传递模型的核心思想是生产者永远不会将任何消息直接发送到队列。甚至生产者通常不知道消息是否会被传递到任何队列。
+
+* 交换机只做两件事情：
+    
+      接收来自生产者的消息
+      
+      将它们推送到队列中
+      
+* 交换机有一下几种类型可供选择：
+            
+            direct: 对应的 Routing 的工作模式
+            
+            topic: 对应的 Topics工作模式
+            
+            headers: 对应的 headers工作模式
+            
+            fanout：对应的rabbitmq 的工作模式是 publish/subscribe,(也是本案例中的类型)
+     
+* 下面是官网对fanout的解释
+
+> The fanout exchange is very simple. As you can probably guess from the name, it just broadcasts all the messages it receives to all the queues it knows. And that's exactly what we need for our logger.
+   
+大致意思就是:这个fanout交换机模式贼简单，他只会把这个消息讲给他认识的人听(它只是将收到的所有消息广播到它知道的所有队列中)；
+
+大家看看代码也就很清楚fanout交换机模式的意思了，这里就不过的的去讲述，在这里请大家思考几个问题，
+               
+* 1、publish/subscribe与work queues有什么区别以及相同点？
+            
+* 2，实质工作用什么 publish/subscribe还是work queues？
+
+* 3，在上个案例中(work queues)没有提到交换机，为什么也能生产和消费？
+
+
