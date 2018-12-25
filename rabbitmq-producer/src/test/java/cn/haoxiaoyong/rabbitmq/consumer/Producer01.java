@@ -1,8 +1,9 @@
-package cn.haoxiaoyong.rabbitmq;
+package cn.haoxiaoyong.rabbitmq.consumer;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.MessageProperties;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -34,7 +35,7 @@ public class Producer01 {
             //建立新链接
             connection = connectionFactory.newConnection();
             //创建通道,生产者和 mq 的所以通信都是在通道中进行
-             channel = connection.createChannel();
+            channel = connection.createChannel();
             //声明一个队列,
             //参数: String queue, boolean durable, boolean exclusive, boolean autoDelete, Map<String, Object> arguments
             /**
@@ -52,13 +53,15 @@ public class Producer01 {
              * 参数明细
              * exchange: 交换机,如果不指定将使用 mq 默认的交换机(设置为: "")
              * routingKey: 路由键,交换机根据路由键来将消息转发到指定的队列,如果使用默认交换机，routingKey设置为队列的名称
-             * props: 息的属性
+             * props: 消息的属性
              * body: 消息内容
              */
             //消息内容
-            String message = "hello world haoxiaoyong";
-            channel.basicPublish("", QUEUE, null, message.getBytes());
+            for (int i = 0; i < 7; i++) {
+                String message = "hello world haoxiaoyong";
 
+                channel.basicPublish("", QUEUE, MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

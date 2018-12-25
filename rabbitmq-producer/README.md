@@ -4,6 +4,9 @@
 
 **生产者**
 
+**Work queues 工作模式**
+
+
 <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/Producer01.java">Producer01</a>
 
 * 创建连接
@@ -82,3 +85,12 @@ public class Producer01 {
 }
 
 ```
+**生产者**
+
+**publish/subscribe工作模式**
+
+<a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/Producer02_publish.java">Producer02_publish</a>
+
+**应用场景:**
+
+    * 

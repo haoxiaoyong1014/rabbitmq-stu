@@ -1,26 +1,18 @@
-#### 重新认识RabbitMQ - 入门案例
+package cn.haoxiaoyong.rabbitmq.consumer;
 
-**rabitmq-consumer**
+import com.rabbitmq.client.*;
 
-**消费者**
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 
-**Work queues 工作模式**
-
-<a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/srcs/test/java/cn/haoxiaoyong/rabbitmq/Consumer01.java">Consumer01</a>
-
-* 创建连接
-
-* 创建通道
-
-* 声明队列
-
-* 监听队列
-
-* 接收消息
-
-```java
-
-public class Consumer01 {
+/**
+ * Created by haoxy on 2018/12/24.
+ * E-mail:hxyHelloWorld@163.com
+ * github:https://github.com/haoxiaoyong1014
+ * <p>
+ * rabbitmq的入门程序-消费者
+ */
+public class Consumer01_1 {
 
     //队列
     private static final String QUEUE = "helloworld";
@@ -38,8 +30,8 @@ public class Consumer01 {
             //创建一个新连接
             Connection connection = connectionFactory.newConnection();
             //创建会话通道
-            Channel channel = connection.createChannel();
-            //监听队列
+            final Channel channel = connection.createChannel();
+            //声明队列
             //参数: String queue, boolean durable, boolean exclusive, boolean autoDelete, Map<String, Object> arguments
             /**
              * queue: 队列名称
@@ -49,6 +41,9 @@ public class Consumer01 {
              * arguments: 参数，可以设置一个队列的扩展参数，比如：可设置存活时间
              */
             channel.queueDeclare(QUEUE, true, false, false, null);
+            //参数: int prefetchCount=1
+            //这告诉RabbitMQ不要一次向消费者发送多个消息,在消费者处理并确认前一条消息之前，不要向其发送新消息。相反，它会把它发送给下一个不太忙的消费者
+            channel.basicQos(1);
             //实现消费方法:
             DefaultConsumer defaultConsumer = new DefaultConsumer(channel) {
                 /**
@@ -71,11 +66,21 @@ public class Consumer01 {
                     long deliveryTag = envelope.getDeliveryTag();
                     //消息内容
                     String message = new String(body, "utf-8");
+                    if (message.contains("hello")) {
+                        try {
+                            Thread.sleep(5000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        } finally {
+                            //收到确定消息
+                            channel.basicAck(envelope.getDeliveryTag(), false);
+                        }
+                    }
                     System.out.println("receive message:" + message);
                 }
             };
 
-
+            //监听队列
             //参数:String queue, boolean autoAck, Consumer callback
             /**
              * 参数明细：
@@ -83,7 +88,7 @@ public class Consumer01 {
              * 2、autoAck 自动回复，当消费者接收到消息后要告诉mq消息已接收，如果将此参数设置为tru表示会自动回复mq，如果设置为false要通过编程实现回复
              * 3、callback，消费方法，当消费者接收到消息要执行的方法
              */
-            channel.basicConsume(QUEUE, true, defaultConsumer);
+            channel.basicConsume(QUEUE, false, defaultConsumer);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (TimeoutException e) {
@@ -92,4 +97,3 @@ public class Consumer01 {
     }
 
 }
-```
