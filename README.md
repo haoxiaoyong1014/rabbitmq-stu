@@ -8,11 +8,11 @@
 
 <img src="http://www.rabbitmq.com/img/tutorials/python-two.png" height="110">
 
-消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/Consumer01.java">Consumer01</a>
+消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Consumer01.java">Consumer01</a>
 
-消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/Consumer01_1.java">Consumer01_1</a>
+消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Consumer01_1.java">Consumer01_1</a>
 
-生产者： <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/Producer01.java">Producer01</a>
+生产者： <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Producer01.java">Producer01</a>
 
 * Work queues 工作模式: 两个消费者或者多个消费者共同消费同一个队列中的消息
  
@@ -93,11 +93,11 @@ rabbitmq会认为你这个消息没有消费,因为 rabbit没有收到消息确�
 
 上一个案例中我们演示了`消费者丢失消息`和 `消息持久化`,这次为了简化代码使用自动ack,
 
-消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/Consumer02_subscribe_email.java">Consumer02_subscribe_email</a>
+消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Consumer02_subscribe_email.java">Consumer02_subscribe_email</a>
 
-消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/Consumer02_subscribe_sms.java">Consumer02_subscribe_sms</a>
+消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Consumer02_subscribe_sms.java">Consumer02_subscribe_sms</a>
 
-生产者： <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/Producer02_publish.java">Producer02_publish</a>
+生产者： <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Producer02_publish.java">Producer02_publish</a>
 
 * publish/subscribe模式：
 
