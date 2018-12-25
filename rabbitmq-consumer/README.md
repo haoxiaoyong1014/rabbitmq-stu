@@ -6,7 +6,7 @@
 
 #### Work queues 工作模式
 
-<a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/srcs/test/java/cn/haoxiaoyong/rabbitmq/Consumer01.java">Consumer01</a>
+<a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/Consumer01.java">Consumer01</a>
 
 * 创建连接
 
@@ -96,9 +96,9 @@ public class Consumer01 {
 
 #### publish/subscribe工作模式 (又称发布订阅模式)
 
-<a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/srcs/test/java/cn/haoxiaoyong/rabbitmq/Consumer02_subscribe_email.java">Consumer02_subscribe_email</a>
+<a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/Consumer02_subscribe_email.java">Consumer02_subscribe_email</a>
 
-<a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/srcs/test/java/cn/haoxiaoyong/rabbitmq/Consumer02_subscribe_sms.java">Consumer02_subscribe_sms</a>
+<a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/Consumer02_subscribe_sms.java">Consumer02_subscribe_sms</a>
 
 * 建立链接
 
