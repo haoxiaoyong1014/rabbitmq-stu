@@ -142,9 +142,74 @@ RabbitMQ中消息传递模型的核心思想是生产者永远不会将任何消
 大家看看代码也就很清楚fanout交换机模式的意思了，这里就不过的的去讲述，在这里请大家思考几个问题，
                
 * 1、publish/subscribe与work queues有什么区别以及相同点？
+     
+      区别:
+            1,work queues不用定义交换机，而publish/subscribe需要定义交换机。
+            2,publish/subscribe的生产方是面向交换机发送消息，work queues的生产方是面向队列发送消息(底层使用默认
+            交换机)。
+            3,publish/subscribe需要设置队列和交换机的绑定，work queues不需要设置，实质上work queues会将队列绑
+            定到默认的交换机 。 
+      相同点: 
+            publish/subscribe中包含了 work queues,也就是说publish/subscribe模式具备了 work queues模式,    
+            为什么这么说呢? 原因是当我们启动两个或多个 `Consumer02_subscribe_email`时,你会发现他的工作和 work queues是一样的.
             
 * 2，实质工作用什么 publish/subscribe还是work queues？
 
+        上面我们已经说到publish/subscribe中包含了 work queues,publish/subscribe更强大点,所以建议使用publish/subscribe(具体看业务场景,具体分析)
+
 * 3，在上个案例中(work queues)没有提到交换机，为什么也能生产和消费？
 
+        上面也已经说到,work queues会将队列绑定到默认的交换机,代码中
+        channel.basicPublish("", QUEUE, MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
+        其中 "" 就是使用了默认交换机.
+                            
+#### Routing工作模式
 
+<img src="http://www.rabbitmq.com/img/tutorials/python-four.png" height="110">
+
+
+消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Consumer03_routing_email.java">Consumer03_routing_email</a>
+
+消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Consumer03_routing_sms.java">Consumer03_routing_sms</a>
+
+生产者： <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Producer03_routing.java">Producer03_routing</a>
+
+**路由模式：**
+
+1、每个消费者监听自己的队列，并且设置routingkey。
+
+2、生产者将消息发给交换机，由交换机根据routingkey来转发消息到指定的队列。
+
+**Direct exchange**
+
+我们在设置交换机的类形时设置的是: `channel.exchangeDeclare(EXCHANGE_ROUTING_INFORM, BuiltinExchangeType.DIRECT);`
+
+
+上一个例子中我们使用的是fanout交换机,他没有给我们太大的灵活性,他只是进行无意识的广播
+
+我们这个例子使用Direct交换机,其工作原理-消息进入队列,在生产者绑定的routingKey与消费者中绑定的 routingKey相匹配
+
+**Routing工作模式与发布订阅模式的区别**
+
+Routing模式要求队列在绑定交换机时要指定routingKey，消息会转发到符合routingkey的队列。而发布订阅模式不需要 routingKey
+    
+#### topics工作模式(通配符模式)
+
+<img src="http://www.rabbitmq.com/img/tutorials/python-five.png" height="110">
+
+消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Consumer04_topics_email.java">Consumer04_topics_email</a>
+
+消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Consumer04_topics_sms.java">Consumer04_topics_sms</a>
+
+生产者： <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Producer04_topics.java">Producer04_topics</a>
+
+* Topics与Routing的原理基本相同,即:生产者发送消息到交换机,交换机根据RoutingKey将消息转发给与RoutingKey匹配的队列,
+
+* 符号 `#`: 匹配一个或者多个词,比如:inform.#可以匹配 inform.sms,inform.email,inform.email.sms
+
+* 符号 `*`:只能匹配一个词,比如 inform.* 可以匹配inform.sms,inform.email
+
+**应用场景**
+
+根据用户的通知设置去通知用户，设置接收Email的用户只接收Email，设置接收sms的用户只接收sms，设置两种
+通知类型都接收的则两种通知都有效。

@@ -47,6 +47,7 @@ public class Consumer02_subscribe_email {
          * 参数明细：
          * exchange 交换机的名称
          * type 交换机的类型
+         * 类型包括:
          * fanout：对应的rabbitmq的工作模式是 publish/subscribe (当前例子就是这种模式)
          * direct：对应的Routing	工作模式
          * topic：对应的Topics工作模式

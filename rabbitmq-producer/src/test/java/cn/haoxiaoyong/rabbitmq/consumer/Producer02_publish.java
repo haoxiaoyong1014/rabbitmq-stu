@@ -17,7 +17,7 @@ import com.rabbitmq.client.ConnectionFactory;
 public class Producer02_publish {
 
     //队列名称
-    private static final String QUEUE_INFORM_EMAIL = "queue_inform_email";
+    private static final String QUEUE_INFORM_EMAIL = "queue_info_email";
     private static final String QUEUE_INFORM_SMS = "queue_inform_sms";
     //交换机
     private static final String EXCHANGE_FANOUT_INFORM = "exchange_fanout_inform";
