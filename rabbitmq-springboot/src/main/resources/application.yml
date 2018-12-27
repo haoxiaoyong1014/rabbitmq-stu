@@ -1,0 +1,16 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: rabbitmq-producer
+  rabbitmq:
+    host: www.haoxiaoyong.cn
+    port: 5672
+    username: guest
+    password: guest
+    virtualHost: /
+myRabbit:
+  queue_inform_email: queue_inform_email
+  queue_inform_sms: queue_inform_sms
+  exchange_topics_inform: exchange_topics_inform
