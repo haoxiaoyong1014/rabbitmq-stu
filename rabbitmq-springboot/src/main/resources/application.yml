@@ -10,6 +10,9 @@ spring:
     username: guest
     password: guest
     virtualHost: /
+    publisher-confirms: true
+    publisher-returns: true
+
 myRabbit:
   queue_inform_email: queue_inform_email
   queue_inform_sms: queue_inform_sms

@@ -23,6 +23,8 @@ public class TopicTest {
     public void test_all(){
         topicProducer.testProducer_all();
     }
+
+
     @Test
     public void test_email(){
         topicProducer.testProducer_email();

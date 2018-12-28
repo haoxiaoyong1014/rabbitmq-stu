@@ -29,13 +29,13 @@ public class RabbitmqConfig {
     //声明邮件队列
     @Bean
     public Queue queueEmail() {
-        return new Queue(queue_inform_email);
+        return new Queue(queue_inform_email,true,false,false);
     }
 
     //声明短信队列
     @Bean
     public Queue queueSms() {
-        return new Queue(queue_inform_sms);
+        return new Queue(queue_inform_sms,true,false,false);
     }
 
     //声明交换机

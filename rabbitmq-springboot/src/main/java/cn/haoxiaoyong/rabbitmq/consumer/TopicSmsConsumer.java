@@ -17,5 +17,6 @@ public class TopicSmsConsumer {
     public void receiverSms(String msg){
 
         System.out.println("sms接收到消息"+msg);
+
     }
 }
