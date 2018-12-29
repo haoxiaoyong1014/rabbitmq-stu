@@ -16,21 +16,7 @@
         <module>rabbitmq-producer</module>
         <module>rabbitmq-consumer</module>
         <module>rabbitmq-springboot</module>
+        <module>rabbitmq-springboot2</module>
     </modules>
- <!--   <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-        </dependency>
-    </dependencies>-->
-
 
 </project>

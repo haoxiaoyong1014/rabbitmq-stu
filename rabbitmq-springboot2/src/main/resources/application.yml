@@ -1,9 +1,9 @@
 server:
-  port: 8090
+  port: 8091
 
 spring:
   application:
-    name: rabbitmq-springboot
+    name: rabbitmq-springboot2
   rabbitmq:
     host: www.haoxiaoyong.cn
     port: 5672
@@ -13,7 +13,7 @@ spring:
     publisher-confirms: true
     publisher-returns: true
 
-myRabbit:
-  queue_inform_email: queue_inform_email
-  queue_inform_sms: queue_inform_sms
-  exchange_topics_inform: exchange_topics_inform
+rabbit:
+  message_queue: message_queue
+  topic_exchange: exchange_topics_inform
+  routing_key: rouing_message

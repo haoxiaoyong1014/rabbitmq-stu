@@ -29,13 +29,13 @@ public class RabbitmqConfig {
     //声明邮件队列
     @Bean
     public Queue queueEmail() {
-        return new Queue(queue_inform_email,true,false,false);
+        return new Queue(queue_inform_email, true, false, false);
     }
 
     //声明短信队列
     @Bean
     public Queue queueSms() {
-        return new Queue(queue_inform_sms,true,false,false);
+        return new Queue(queue_inform_sms, true, false, false);
     }
 
     //声明交换机
@@ -46,13 +46,13 @@ public class RabbitmqConfig {
 
     //进行邮件队列和交换机的绑定
     @Bean
-    public Binding bindingEmail(TopicExchange topic,Queue queueEmail) {
+    public Binding bindingEmail(TopicExchange topic, Queue queueEmail) {
         return BindingBuilder.bind(queueEmail).to(topic).with("inform.#.email.#");//inform_email
     }
 
     //进行短信队列和交换机的绑定
     @Bean
-    public Binding bindingSms(TopicExchange topic,Queue queueSms) {
+    public Binding bindingSms(TopicExchange topic, Queue queueSms) {
         return BindingBuilder.bind(queueSms).to(topic).with("inform.#.sms.#");//inform_sms
     }
 

@@ -1,6 +1,6 @@
 package cn.haoxiaoyong.rabbitmq;
 
-import cn.haoxiaoyong.rabbitmq.producer.TopicProducer;
+import cn.haoxiaoyong.rabbitmq.queue.producer.TopicProducer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

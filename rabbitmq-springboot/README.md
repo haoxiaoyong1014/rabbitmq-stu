@@ -93,6 +93,7 @@ spring:
         try {
             //消息确定
             channel.basicAck(tag, false);
+            System.out.println("email_消息ID:" + tag + "已经消费完毕..."); 
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -105,5 +106,5 @@ spring:
       
     * multiple：为了减少网络流量，手动确认可以被批处理，当该参数为 true 时，则可以一次性确认 delivery_tag 小于等于传入值的所有消息
       
-这时如果在处理业务逻辑时出错了,也就没有确定消息,RabbitMq 会认为你这个消息没有处理完成,会重新分配下一个消费者    
+这时如果在处理业务逻辑时出错了,也就没有确定消息,RabbitMq 会认为你这个消息没有处理完成,会重新分配下一个消费者(当你开启多个消费者的时候)    
 
