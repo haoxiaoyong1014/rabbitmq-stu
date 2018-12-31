@@ -16,7 +16,7 @@
         <module>rabbitmq-producer</module>
         <module>rabbitmq-consumer</module>
         <module>rabbitmq-springboot</module>
-        <module>rabbitmq-springboot2</module>
+        <module>rabbitmq-springboot-reflect</module>
     </modules>
 
 </project>

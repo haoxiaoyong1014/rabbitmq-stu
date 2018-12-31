@@ -215,3 +215,9 @@ Routing模式要求队列在绑定交换机时要指定routingKey，消息会转
 
 根据用户的通知设置去通知用户，设置接收Email的用户只接收Email，设置接收sms的用户只接收sms，设置两种
 通知类型都接收的则两种通知都有效。
+
+#### rabbitmq-springboot
+
+<a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/tree/master/rabbitmq-springboot">rabbitmq-springboot</a>
+
+springboot集成rabbitmq使用topic(通配符)模式

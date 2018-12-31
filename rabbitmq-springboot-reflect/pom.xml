@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>rabbitmq-springboot2</artifactId>
+    <artifactId>rabbitmq-springboot-reflect</artifactId>
 
     <dependencies>
         <dependency>

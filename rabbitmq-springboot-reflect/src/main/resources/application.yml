@@ -15,5 +15,5 @@ spring:
 
 rabbit:
   message_queue: message_queue
-  topic_exchange: exchange_topics_inform
+  topic_exchange: exchange_topics
   routing_key: rouing_message

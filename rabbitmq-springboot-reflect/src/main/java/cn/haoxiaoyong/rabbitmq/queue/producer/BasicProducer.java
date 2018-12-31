@@ -41,11 +41,11 @@ public abstract class BasicProducer implements RabbitTemplate.ConfirmCallback, R
 
     /**
      * @param serviceName:              类名
-     * @param serviceMothodName:类名中的方法名
+     * @param serviceMethodName:类名中的方法名
      * @param correlationId: 应用程序使用-关联标识符
      * @param msg:消息内容
      */
-    public void sengMessage(String serviceName, String serviceMothodName, String correlationId, Object msg) {
+    public void sendMessage(String serviceName, String serviceMethodName, String correlationId, Object msg) {
         this.rabbitTemplate.setCorrelationKey(correlationId);
         //参数: String routingKey, Object message, MessagePostProcessor messagePostProcessor
         this.rabbitTemplate.convertAndSend(routing_message, msg, new MessagePostProcessor() {
@@ -55,7 +55,9 @@ public abstract class BasicProducer implements RabbitTemplate.ConfirmCallback, R
                 message.getMessageProperties().setDeliveryTag(tag);
                 message.getMessageProperties().setTimestamp(new Date());
                 message.getMessageProperties().setMessageId(UUID.randomUUID().toString());
-                message.getMessageProperties().setCorrelationId(correlationId.toString());
+                message.getMessageProperties().setCorrelationId(correlationId);
+                message.getMessageProperties().setHeader("serviceName",serviceName);
+                message.getMessageProperties().setHeader("serviceMethodName",serviceMethodName);
                 System.out.println("Random 随机数:" + tag);
                 return message;
             }
@@ -75,7 +77,7 @@ public abstract class BasicProducer implements RabbitTemplate.ConfirmCallback, R
          * cause:失败原因
          */
         if (ack) {
-            logger.info("send message successful !");
+            logger.info("Message successfully arrived exchange !");
         } else {
             logger.info("send message failed");
             System.out.println("消息的唯一标识: " + correlationData.getId());
@@ -86,7 +88,7 @@ public abstract class BasicProducer implements RabbitTemplate.ConfirmCallback, R
     @Override
     public void returnedMessage(Message message, int replyCode, String replyText, String exchange, String routingKey) {
         //当消息发送失败的时候会执行以下
-        logger.info(message.getMessageProperties().getConsumerTag() + "send message failed");
+        logger.info(message.getMessageProperties().getDeliveryTag() + "send message failed");
         System.out.println("消息主体 message" + message);
         System.out.println("消息主体 replyCode" + replyCode);
         System.out.println("描述" + replyText);

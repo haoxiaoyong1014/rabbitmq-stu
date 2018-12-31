@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 /**
  * Created by haoxy on 2018/12/29.
  * E-mail:hxyHelloWorld@163.com
@@ -18,7 +20,9 @@ public class TopicProducer extends BasicProducer {
 
     public void send(){
         logger.info("TopicProducer中send方法执行...");
+        String message= "This is the message from the TopicProducer.send().";
 
+        this.sendMessage("topicConsumer","process", UUID.randomUUID().toString(),message);
     }
 
 }
