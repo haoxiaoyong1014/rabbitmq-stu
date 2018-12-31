@@ -221,3 +221,9 @@ Routing模式要求队列在绑定交换机时要指定routingKey，消息会转
 <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/tree/master/rabbitmq-springboot">rabbitmq-springboot</a>
 
 springboot集成rabbitmq使用topic(通配符)模式
+
+#### rabbitmq-springboot-reflect
+
+<a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/tree/master/rabbitmq-springboot-reflect">rabbitmq-springboot-reflect</a>
+
+添加消息监听,通过反射执行消费方法
