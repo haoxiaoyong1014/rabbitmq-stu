@@ -7,7 +7,7 @@
 #### Work queues 工作模式
 
 
-<a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Producer01.java">Producer01</a>
+<a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/queue/consumer/Producer01.java">Producer01</a>
 
 * 创建连接
 
@@ -88,7 +88,7 @@ public class Producer01 {
 #### publish/subscribe工作模式 (又称发布订阅模式)
 
 
-<a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Producer02_publish.java">Producer02_publish</a>
+<a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/queue/consumer/Producer02_publish.java">Producer02_publish</a>
 
 
 

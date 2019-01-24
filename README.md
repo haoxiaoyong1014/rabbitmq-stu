@@ -8,11 +8,11 @@
 
 <img src="http://www.rabbitmq.com/img/tutorials/python-two.png" height="110">
 
-消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Consumer01.java">Consumer01</a>
+消费者：  <a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/queue/consumer/Consumer01.java">Consumer01</a>
 
-消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Consumer01_1.java">Consumer01_1</a>
+消费者：  <a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/queue/consumer/Consumer01_1.java">Consumer01_1</a>
 
-生产者： <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Producer01.java">Producer01</a>
+生产者： <a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/queue/consumer/Producer01.java">Producer01</a>
 
 * Work queues 工作模式: 两个消费者或者多个消费者共同消费同一个队列中的消息
  
@@ -95,11 +95,11 @@ rabbitmq会认为你这个消息没有消费,因为 rabbit没有收到消息确�
 
 上一个案例中我们演示了`消费者丢失消息`和 `消息持久化`,这次为了简化代码使用自动ack,
 
-消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Consumer02_subscribe_email.java">Consumer02_subscribe_email</a>
+消费者：  <a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/queue/consumer/Consumer02_subscribe_email.java">Consumer02_subscribe_email</a>
 
-消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Consumer02_subscribe_sms.java">Consumer02_subscribe_sms</a>
+消费者：  <a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/queue/consumer/Consumer02_subscribe_sms.java">Consumer02_subscribe_sms</a>
 
-生产者： <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Producer02_publish.java">Producer02_publish</a>
+生产者： <a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/queue/consumer/Producer02_publish.java">Producer02_publish</a>
 
 * publish/subscribe模式：
 
@@ -170,11 +170,11 @@ RabbitMQ中消息传递模型的核心思想是生产者永远不会将任何消
 <img src="http://www.rabbitmq.com/img/tutorials/python-four.png" height="110">
 
 
-消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Consumer03_routing_email.java">Consumer03_routing_email</a>
+消费者：  <a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/queue/consumer/Consumer03_routing_email.java">Consumer03_routing_email</a>
 
-消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Consumer03_routing_sms.java">Consumer03_routing_sms</a>
+消费者：  <a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/queue/consumer/Consumer03_routing_sms.java">Consumer03_routing_sms</a>
 
-生产者： <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Producer03_routing.java">Producer03_routing</a>
+生产者： <a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/queue/consumer/Producer03_routing.java">Producer03_routing</a>
 
 **路由模式：**
 
@@ -199,11 +199,11 @@ Routing模式要求队列在绑定交换机时要指定routingKey，消息会转
 
 <img src="http://www.rabbitmq.com/img/tutorials/python-five.png" height="110">
 
-消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Consumer04_topics_email.java">Consumer04_topics_email</a>
+消费者：  <a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/queue/consumer/Consumer04_topics_email.java">Consumer04_topics_email</a>
 
-消费者：  <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Consumer04_topics_sms.java">Consumer04_topics_sms</a>
+消费者：  <a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/blob/master/rabbitmq-consumer/src/test/java/cn/haoxiaoyong/rabbitmq/queue/consumer/Consumer04_topics_sms.java">Consumer04_topics_sms</a>
 
-生产者： <a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/consumer/Producer04_topics.java">Producer04_topics</a>
+生产者： <a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/blob/master/rabbitmq-producer/src/test/java/cn/haoxiaoyong/rabbitmq/queue/consumer/Producer04_topics.java">Producer04_topics</a>
 
 * Topics与Routing的原理基本相同,即:生产者发送消息到交换机,交换机根据RoutingKey将消息转发给与RoutingKey匹配的队列,
 
@@ -218,12 +218,12 @@ Routing模式要求队列在绑定交换机时要指定routingKey，消息会转
 
 #### rabbitmq-springboot
 
-<a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/tree/master/rabbitmq-springboot">rabbitmq-springboot</a>
+<a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/tree/master/rabbitmq-springboot">rabbitmq-springboot</a>
 
 springboot集成rabbitmq使用topic(通配符)模式
 
 #### rabbitmq-springboot-reflect
 
-<a href="https://gitlab.com/haoxiaoyong/rabbitmq-stu/tree/master/rabbitmq-springboot-reflect">rabbitmq-springboot-reflect</a>
+<a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/tree/master/rabbitmq-springboot-reflect">rabbitmq-springboot-reflect</a>
 
 添加消息监听,通过反射执行消费方法
