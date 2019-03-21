@@ -8,7 +8,7 @@ spring:
     host: www.haoxiaoyong.cn
     port: 5672
     username: haoxiaoyong
-    password: 12345678
+    password: ***
     virtualHost: /
     publisher-confirms: true
     publisher-returns: true
