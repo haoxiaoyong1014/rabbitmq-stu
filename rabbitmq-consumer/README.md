@@ -49,6 +49,8 @@ public class Consumer01 {
              * arguments: 参数，可以设置一个队列的扩展参数，比如：可设置存活时间
              */
             channel.queueDeclare(QUEUE, true, false, false, null);
+            //这告诉RabbitMQ不要一次向消费者发送多个消息,在消费者处理并确认前一条消息之前，不要向其发送新消息。相反，它会把它发送给下一个不太忙的消费者
+            channel.basicQos(1);
             //实现消费方法:
             DefaultConsumer defaultConsumer = new DefaultConsumer(channel) {
                 /**
