@@ -1,10 +1,6 @@
 package cn.haoxiaoyong.rabbitmq.queue.consumer;
 
-import com.rabbitmq.client.BuiltinExchangeType;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-
+import com.rabbitmq.client.*;
 
 
 /**
@@ -17,7 +13,7 @@ import com.rabbitmq.client.ConnectionFactory;
 public class Producer02_publish {
 
     //队列名称
-    private static final String QUEUE_INFORM_EMAIL = "queue_info_email";
+    private static final String QUEUE_INFORM_EMAIL = "queue_inform_email";
     private static final String QUEUE_INFORM_SMS = "queue_inform_sms";
     //交换机
     private static final String EXCHANGE_FANOUT_INFORM = "exchange_fanout_inform";
@@ -26,9 +22,9 @@ public class Producer02_publish {
         //通过连接工厂创建新的连接和 mq建立连接
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setPort(5672);
-        connectionFactory.setUsername("guest");
-        connectionFactory.setPassword("guest");
-        connectionFactory.setHost("www.haoxiaoyong.cn");
+        connectionFactory.setUsername("haoxy");
+        connectionFactory.setPassword("haoxy");
+        connectionFactory.setHost("47.100.102.136");
         //设置虚拟机,一个 mq服务可以设置多个虚拟机,每个虚拟机相当于一个独立的 mq
         connectionFactory.setVirtualHost("/");
         Connection connection = null;
@@ -87,7 +83,14 @@ public class Producer02_publish {
              */
             for (int i = 0; i < 5; i++) {
                 String message = "send ingorm message to user";
-                channel.basicPublish(EXCHANGE_FANOUT_INFORM, "", null, message.getBytes());
+
+                AMQP.BasicProperties properties = new AMQP.BasicProperties.Builder()
+                        .contentType("application/json")
+                        .deliveryMode(2)//消息持久化
+                        .priority(0)
+                        .build();
+
+                channel.basicPublish(EXCHANGE_FANOUT_INFORM, "",properties , message.getBytes());
 
             }
         } catch (Exception e) {

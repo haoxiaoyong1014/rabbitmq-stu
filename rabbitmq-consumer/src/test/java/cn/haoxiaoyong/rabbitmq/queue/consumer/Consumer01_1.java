@@ -20,10 +20,10 @@ public class Consumer01_1 {
     public static void main(String[] args) {
         //通过连接工厂创建新的连接和mq建立连接
         ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("www.haoxiaoyong.cn");
+        connectionFactory.setHost("47.100.102.136");
         connectionFactory.setPort(5672);//端口
-        connectionFactory.setUsername("guest");
-        connectionFactory.setPassword("guest");
+        connectionFactory.setUsername("haoxy");
+        connectionFactory.setPassword("haoxy");
         //设置虚拟机，一个mq服务可以设置多个虚拟机，每个虚拟机就相当于一个独立的mq
         connectionFactory.setVirtualHost("/");
         try {
@@ -76,7 +76,7 @@ public class Consumer01_1 {
                             channel.basicAck(envelope.getDeliveryTag(), false);
                         }
                     }
-                    System.out.println("receive message:" + message);
+                    System.out.println("receive message:" + message + "消息id: " + consumerTag);
                 }
             };
 

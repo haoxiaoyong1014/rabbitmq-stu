@@ -24,15 +24,15 @@ public class Producer03_routing {
     private static final String EXCHANGE_ROUTING_INFORM = "exchange_routing_inform";
     //路由键
     private static final String ROUTINGKEY_EMAIL = "inform_email";
-    private static final String ROUTINGKEY_SMS = "inform-sms";
+    private static final String ROUTINGKEY_SMS = "inform_sms";
 
     public static void main(String[] args) {
         //通过连接工厂创建一个新的链接和 mq 建立一个链接
         ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("www.haoxiaoyong.cn");
+        connectionFactory.setHost("47.100.102.136");
         connectionFactory.setPort(5672);
-        connectionFactory.setUsername("guest");
-        connectionFactory.setPassword("guest");
+        connectionFactory.setUsername("haoxy");
+        connectionFactory.setPassword("haoxy");
         //设置一个虚拟机,一个 mq可以设置多个虚拟机,每个虚拟机相当于一个独立的 mq,可以模拟多个 mq
         connectionFactory.setVirtualHost("/");
         Connection connection = null;
@@ -49,7 +49,7 @@ public class Producer03_routing {
             channel.queueDeclare(QUEUE_INFORM_SMS, true, false, false, null);
             //声明交换机
             /**
-             * 此案例交换机类型为: direct
+             * 此案例交换机类型为: direct-->routing
              */
             channel.exchangeDeclare(EXCHANGE_ROUTING_INFORM, BuiltinExchangeType.DIRECT);
             //进行交换机和队列绑定

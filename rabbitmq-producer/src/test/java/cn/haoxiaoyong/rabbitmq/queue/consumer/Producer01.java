@@ -23,10 +23,10 @@ public class Producer01 {
     public static void main(String[] args) {
         //通过连接工厂创建一个新的链接和 mq 建立一个链接
         ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("www.haoxiaoyong.cn");
+        connectionFactory.setHost("47.100.102.136");
         connectionFactory.setPort(5672);
-        connectionFactory.setUsername("guest");
-        connectionFactory.setPassword("guest");
+        connectionFactory.setUsername("haoxy");
+        connectionFactory.setPassword("haoxy");
         //设置一个虚拟机,一个 mq可以设置多个虚拟机,每个虚拟机相当于一个独立的 mq,可以模拟多个 mq
         connectionFactory.setVirtualHost("/");
         Connection connection = null;
@@ -53,7 +53,7 @@ public class Producer01 {
              * 参数明细
              * exchange: 交换机,如果不指定将使用 mq 默认的交换机(设置为: "")
              * routingKey: 路由键,交换机根据路由键来将消息转发到指定的队列,如果使用默认交换机，routingKey设置为队列的名称
-             * props: 消息的属性
+             * props: 消息的属性 -->消息持久化
              * body: 消息内容
              */
             //消息内容

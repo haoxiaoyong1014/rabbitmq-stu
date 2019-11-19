@@ -5,7 +5,7 @@ spring:
   application:
     name: rabbitmq-springboot2
   rabbitmq:
-    host: www.haoxiaoyong.cn
+    host: 47.100.102.136
     port: 5672
     username: haoxiaoyong
     password: *

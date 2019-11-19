@@ -22,9 +22,9 @@ public class Consumer02_subscribe_email {
         //通过连接工厂创建新的连接和 mq建立连接
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setPort(5672);
-        connectionFactory.setUsername("guest");
-        connectionFactory.setPassword("guest");
-        connectionFactory.setHost("www.haoxiaoyong.cn");
+        connectionFactory.setUsername("haoxy");
+        connectionFactory.setPassword("haoxy");
+        connectionFactory.setHost("47.100.102.136");
         //设置虚拟机,一个 mq服务可以设置多个虚拟机,每个虚拟机相当于一个独立的 mq
         connectionFactory.setVirtualHost("/");
         //建立新连接

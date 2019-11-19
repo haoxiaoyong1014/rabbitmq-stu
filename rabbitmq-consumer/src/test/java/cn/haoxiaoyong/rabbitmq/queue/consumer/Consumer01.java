@@ -22,10 +22,10 @@ public class Consumer01 {
     public static void main(String[] args) {
         //通过连接工厂创建新的连接和mq建立连接
         ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("www.haoxiaoyong.cn");
+        connectionFactory.setHost("47.100.102.136");
         connectionFactory.setPort(5672);//端口
-        connectionFactory.setUsername("guest");
-        connectionFactory.setPassword("guest");
+        connectionFactory.setUsername("haoxy");
+        connectionFactory.setPassword("haoxy");
         //设置虚拟机，一个mq服务可以设置多个虚拟机，每个虚拟机就相当于一个独立的mq
         connectionFactory.setVirtualHost("/");
         try {
@@ -37,7 +37,7 @@ public class Consumer01 {
             //参数: String queue, boolean durable, boolean exclusive, boolean autoDelete, Map<String, Object> arguments
             /**
              * queue: 队列名称
-             * durable: 是否持久化，如果持久化，mq重启后队列还在
+             * durable: 是否持久化，如果持久化，mq重启后队列还在-->队列持久化
              * exclusive: 是否独占连接，队列只允许在该连接中访问，如果connection连接关闭队列则自动删除,如果将此参数设置true可用于临时队列的创建
              * autoDelete: 自动删除，队列不再使用时是否自动删除此队列，如果将此参数和exclusive参数设置为true就可以实现临时队列（队列不用了就自动删除）
              * arguments: 参数，可以设置一个队列的扩展参数，比如：可设置存活时间
@@ -66,6 +66,7 @@ public class Consumer01 {
 
                     //消息id，mq在channel中用来标识消息的id，可用于确认消息已接收
                     long deliveryTag = envelope.getDeliveryTag();
+
                     //消息内容
                     String message = new String(body, "utf-8");
 
@@ -83,7 +84,7 @@ public class Consumer01 {
                             channel.basicAck(envelope.getDeliveryTag(), false);
                         }
                     }
-                    System.out.println("receive message:" + message);
+                    System.out.println("receive message:" + message + "消息id: " + consumerTag);
                 }
             };
 

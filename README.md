@@ -1,9 +1,3 @@
-##### 重新认识RabbitMQ 
-
-**rabbitmq-stu**
-
-**入门程序**
-
 #### Work queues 工作模式
 
 <img src="http://www.rabbitmq.com/img/tutorials/python-two.png" height="110">

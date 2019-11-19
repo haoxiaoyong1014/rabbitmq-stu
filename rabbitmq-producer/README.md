@@ -25,10 +25,10 @@ public class Producer01 {
     public static void main(String[] args) {
         //通过连接工厂创建一个新的链接和 mq 建立一个链接
         ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("www.haoxiaoyong.cn");
+        connectionFactory.setHost("47.100.102.136");
         connectionFactory.setPort(5672);
-        connectionFactory.setUsername("guest");
-        connectionFactory.setPassword("guest");
+        connectionFactory.setUsername("haoxy");
+        connectionFactory.setPassword("haoxy");
         //设置一个虚拟机,一个 mq可以设置多个虚拟机,每个虚拟机相当于一个独立的 mq,可以模拟多个 mq
         connectionFactory.setVirtualHost("/");
         Connection connection = null;
@@ -119,9 +119,9 @@ public class Producer02_publish {
         //通过连接工厂创建新的连接和 mq建立连接
         ConnectionFactory connectionFactory = new ConnectionFactory();
         connectionFactory.setPort(5672);
-        connectionFactory.setUsername("guest");
-        connectionFactory.setPassword("guest");
-        connectionFactory.setHost("www.haoxiaoyong.cn");
+        connectionFactory.setUsername("haoxy");
+        connectionFactory.setPassword("haoxy");
+        connectionFactory.setHost("47.100.102.136");
         //设置虚拟机,一个 mq服务可以设置多个虚拟机,每个虚拟机相当于一个独立的 mq
         connectionFactory.setVirtualHost("/");
         Connection connection = null;
