@@ -1,4 +1,4 @@
-#### Work queues 工作模式
+### Work queues 工作模式
 
 <img src="http://www.rabbitmq.com/img/tutorials/python-two.png" height="110">
 
@@ -83,7 +83,7 @@ rabbitmq会认为你这个消息没有消费,因为 rabbit没有收到消息确�
     
 通过将MessageProperties（实现BasicProperties）设置为值PERSISTENT_TEXT_PLAIN。这样我们就将消息设置为持久化了.    
 
-#### publish/subscribe工作模式 (又称发布订阅模式)
+### publish/subscribe工作模式 (又称发布订阅模式)
 
 <img src="http://www.rabbitmq.com/img/tutorials/exchanges.png" height="110">
 
@@ -159,7 +159,7 @@ RabbitMQ中消息传递模型的核心思想是生产者永远不会将任何消
         channel.basicPublish("", QUEUE, MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
         其中 "" 就是使用了默认交换机.
                             
-#### Routing工作模式
+### Routing工作模式
 
 <img src="http://www.rabbitmq.com/img/tutorials/python-four.png" height="110">
 
@@ -189,7 +189,7 @@ RabbitMQ中消息传递模型的核心思想是生产者永远不会将任何消
 
 Routing模式要求队列在绑定交换机时要指定routingKey，消息会转发到符合routingkey的队列。而发布订阅模式不需要 routingKey
     
-#### topics工作模式(通配符模式)
+### topics工作模式(通配符模式)
 
 <img src="http://www.rabbitmq.com/img/tutorials/python-five.png" height="110">
 
@@ -210,13 +210,13 @@ Routing模式要求队列在绑定交换机时要指定routingKey，消息会转
 根据用户的通知设置去通知用户，设置接收Email的用户只接收Email，设置接收sms的用户只接收sms，设置两种
 通知类型都接收的则两种通知都有效。
 
-#### rabbitmq-springboot
+### rabbitmq-springboot
 
 <a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/tree/master/rabbitmq-springboot">rabbitmq-springboot</a>
 
 springboot集成rabbitmq使用topic(通配符)模式
 
-#### rabbitmq-springboot-reflect
+### rabbitmq-springboot-reflect
 
 <a href="https://github.com/haoxiaoyong1014/rabbitmq-stu/tree/master/rabbitmq-springboot-reflect">rabbitmq-springboot-reflect</a>
 
