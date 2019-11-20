@@ -7,11 +7,35 @@ spring:
   rabbitmq:
     host: 47.100.102.136
     port: 5672
-    username: haoxiaoyong
-    password: ***
+    username: haoxy
+    password: haoxy
     virtualHost: /
+    ## 发送方
+    ## 开启发送确认(未到达MQ服务器)
     publisher-confirms: true
+    # 开启发送失败退回(未找到对应queue)
     publisher-returns: true
+    # 消费方 开启手动ACK(坑：当序列化为JSON时，此配置会失效)
+    listener:
+      direct:
+        acknowledge-mode: manual
+      simple:
+        acknowledge-mode: manual
+      #消费者每次从队列获取的消息数量 (默认一次250个)
+      #通过查看后台管理器中queue的unacked数量
+        prefetch: 5
+      #消费者自动启动
+        #auto-startup: true
+      #消费失败，自动重新入队
+        default-requeue-rejected: true
+      #启用发送重试
+    template:
+      retry:
+        enabled: true
+        initial-interval: 1000
+        max-attempts: 3
+        max-interval: 10000
+        multiplier: 1.0
 
 myRabbit:
   queue_inform_email: queue_inform_email

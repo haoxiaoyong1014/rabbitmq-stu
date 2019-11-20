@@ -41,7 +41,7 @@ public class RabbitmqConfig {
     //声明交换机
     @Bean
     public TopicExchange exchange() {
-        return new TopicExchange(exchange_topics_inform);
+        return new TopicExchange(exchange_topics_inform,true,false);
     }
 
     //进行邮件队列和交换机的绑定

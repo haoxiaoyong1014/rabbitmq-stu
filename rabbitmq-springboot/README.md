@@ -39,6 +39,14 @@
 
 其中`returnedMessage`是`ReturnCallback`中的方法,主要作用: 通过实现 ReturnCallback 接口，启动消息失败返回(只有消息发送失败才会执行)，比如路由不到队列时触发回调
 
+```json
+消息主体 message(Body:'this is message' MessageProperties [headers={}, contentType=text/plain, contentEncoding=UTF-8, contentLength=0, receivedDeliveryMode=PERSISTENT, priority=0, deliveryTag=0])
+消息主体 replyCode312
+描述NO_ROUTE
+消息使用的交换机exchange_topics_inform
+消息使用的路由键aaaa
+```
+
 要实现这个发布确定的功能当然只实现这两个接口是不行的我们需要再配置文件中配置
 
 ```yml

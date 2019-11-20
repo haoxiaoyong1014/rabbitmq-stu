@@ -45,7 +45,7 @@ public class TopicProducer {
 
     }
 
-    //邮箱
+    //发送邮件
     public void testProducer_email() {
 
         String message = "this is message";
@@ -59,7 +59,7 @@ public class TopicProducer {
         this.rabbitTemplate.convertAndSend(exchange_topics_inform, "inform.abc.email.abc", message);
     }
 
-    //短信
+    //发送短信
     public void testProducer_sms() {
 
         String message = "this is message";
