@@ -24,7 +24,7 @@ public class TopicEmailConsumer {
     @RabbitHandler
     @RabbitListener(queues = {"queue_inform_email"})//inform.#.email.#
     public void receiverEmail(String msg, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long tag) throws IOException {
-
+        channel.basicQos(1);
         //接收到消息
         System.out.println("email接收到消息" + msg + "开始处理消息....");
         //处理业务逻辑.....
